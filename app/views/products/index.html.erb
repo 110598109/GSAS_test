@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+      <ul class="list-group">
+        <li class="list-group-item">
+          類別
+          <ul class="list-group">
+            <li class="list-group-item">副類別</li>
+            <li class="list-group-item">副類別</li>
+            <li class="list-group-item">副類別</li>
+            <li class="list-group-item">副類別</li>
+          </ul>
+        </li>
+        <li class="list-group-item">
+          類別
+          <ul class="list-group">
+            <li class="list-group-item">副類別</li>
+            <li class="list-group-item">副類別</li>
+            <li class="list-group-item">副類別</li>
+            <li class="list-group-item">副類別</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="col-xs-9">
+      <div class="row">
+        <div class="jumbotron">
+          <h1> <%= @ad[:title] %> </h1>
+          <p> <%= @ad[:des] %> </p>
+          <p><a class="btn btn-primary btn-lg" href="#" role="button"> <%= @ad[:action_title] %> </a></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <% @products.each_with_index do |product, index| %>
+          <div class="col-xs-3">
+            <%= render 'products/product_card/small', product: product, index: index %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <nav aria-label="Page navigation">
+            <ul class="pagination">
+              <li>
+                <%= link_to root_path(page: @page) do%>
+                  <span aria-hidden="true">&laquo;</span>
+                <% end %>
+              </li>
+              <% (@first_page..@last_page).each do |page_number| %>
+                <li><%= link_to page_number, root_path(page: page_number) %></li>
+              <% end %>
+              <li>
+                <%= link_to root_path(page: @page+2) do%>
+                  <span aria-hidden="true">&raquo;</span>
+                <% end %>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

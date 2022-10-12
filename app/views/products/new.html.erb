@@ -1,0 +1,51 @@
+<h3>新增產品</h3>
+<%
+=begin%>
+ <%= form_tag(products_path(), method: :post) do %>
+    <label>
+        product name
+        <input type="text" name="name" />
+    </label>
+    <br/>
+    <label>
+        description
+        <input type="text" name="description" />
+    </label>
+    <br/>
+    <label>
+        path
+        <input type="text" name="img_path" />
+    </label>
+    <br/>
+    <label>
+        price
+        <input type="text" name="price" />
+    </label>
+    <br/>
+    <button>
+        submit
+    </button>
+    <%= @note %>
+<% end %> 
+<%
+=end%>
+
+<%= form_for @product, method: :post do |p|%>
+    <%= p.label :name, "名稱" %>
+    <%= p.text_field :name %>
+    <br />
+
+    <%= p.label :description, "產品敘述" %>
+    <%= p.text_field :description %>
+    <br />
+
+    <%= p.label :image_path, "圖片路徑" %>
+    <%= p.text_field :image_path %>
+    <br />
+
+    <%= p.label :price, "定價" %>
+    <%= p.text_field :price %>
+    <br />
+
+    <%= p.submit "新增" %>
+<% end %>
